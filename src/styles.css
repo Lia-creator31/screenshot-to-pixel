@@ -386,6 +386,164 @@
   animation: mist-drift 12s ease-in-out infinite;
 }
 
+/* ---------- Garden journey & garden life ---------- */
+@keyframes rays-turn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bird-fly {
+  0% {
+    transform: translate3d(-12cqw, 0, 0);
+  }
+  35% {
+    transform: translate3d(30cqw, -3cqh, 0);
+  }
+  70% {
+    transform: translate3d(75cqw, 1cqh, 0);
+  }
+  100% {
+    transform: translate3d(112cqw, -2cqh, 0);
+  }
+}
+
+@keyframes wing-flap {
+  0%,
+  100% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(-0.4);
+  }
+}
+
+@keyframes butterfly-wander {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-8deg);
+  }
+  25% {
+    transform: translate3d(14cqw, -6cqh, 0) rotate(10deg);
+  }
+  50% {
+    transform: translate3d(28cqw, -2cqh, 0) rotate(-4deg);
+  }
+  75% {
+    transform: translate3d(10cqw, 4cqh, 0) rotate(12deg);
+  }
+}
+
+@keyframes butterfly-wander-alt {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(6deg);
+  }
+  30% {
+    transform: translate3d(-16cqw, 5cqh, 0) rotate(-10deg);
+  }
+  60% {
+    transform: translate3d(-6cqw, -7cqh, 0) rotate(8deg);
+  }
+  80% {
+    transform: translate3d(8cqw, -3cqh, 0) rotate(-6deg);
+  }
+}
+
+@keyframes butterfly-flap {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(0.2);
+  }
+}
+
+@keyframes deer-walk {
+  0% {
+    transform: translate3d(-18cqw, 0, 0);
+  }
+  100% {
+    transform: translate3d(118cqw, 0, 0);
+  }
+}
+
+@keyframes deer-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes deer-step {
+  0%,
+  100% {
+    transform: rotate(14deg);
+  }
+  50% {
+    transform: rotate(-14deg);
+  }
+}
+
+@utility animate-rays {
+  animation: rays-turn 40s linear infinite;
+}
+
+@utility animate-bird-fly {
+  animation: bird-fly var(--dur, 20s) linear var(--delay, 0s) infinite;
+}
+
+@utility animate-wing-flap {
+  animation: wing-flap 0.55s ease-in-out infinite;
+}
+
+@utility animate-butterfly-wander {
+  animation: butterfly-wander var(--dur, 18s) ease-in-out var(--delay, 0s) infinite;
+}
+
+@utility animate-butterfly-wander-alt {
+  animation: butterfly-wander-alt var(--dur, 20s) ease-in-out var(--delay, 0s) infinite;
+}
+
+@utility animate-butterfly-flap {
+  animation: butterfly-flap 0.32s ease-in-out infinite;
+}
+
+@utility animate-deer-walk {
+  animation: deer-walk 46s linear -12s infinite;
+}
+
+@utility animate-deer-bob {
+  animation: deer-bob 0.9s ease-in-out infinite;
+}
+
+@utility animate-deer-step {
+  animation: deer-step 0.9s ease-in-out infinite;
+}
+
+@utility animate-deer-step-alt {
+  animation: deer-step 0.9s ease-in-out -0.45s infinite;
+}
+
+/* Golden light rays that pour through the opened gate. */
+@utility bg-light-rays {
+  background: repeating-conic-gradient(
+    from 0deg at 50% 50%,
+    color-mix(in oklab, var(--gold-light) 38%, transparent) 0deg 5deg,
+    transparent 5deg 18deg
+  );
+  mask-image: radial-gradient(circle at 50% 50%, black 0%, transparent 62%);
+}
+
+/* Soft blurred edges of the garden that rush past during the camera push. */
+@utility garden-edge-mask {
+  mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, transparent 35%, black 80%);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
