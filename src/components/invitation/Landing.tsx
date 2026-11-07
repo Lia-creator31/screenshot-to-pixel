@@ -51,7 +51,7 @@ export function Landing({ guest, onOpenStart, onReveal, onOpened }: Props) {
       className="fixed inset-y-0 left-1/2 z-50 w-full max-w-[420px] -translate-x-1/2 overflow-hidden bg-burgundy-deep"
       initial={{ opacity: 1 }}
       animate={opening ? { opacity: [1, 1, 0] } : { opacity: 1 }}
-      transition={opening ? { ...journey, times: [0, reduce ? 0.2 : 0.82, 1] } : undefined}
+      transition={opening ? { ...journey, times: [0, reduce ? 0.2 : 0.82, 1] } : {}}
     >
       {/* Layer 1 — the garden. One uninterrupted forward camera push. */}
       <motion.img
@@ -100,7 +100,7 @@ export function Landing({ guest, onOpenStart, onReveal, onOpened }: Props) {
         aria-hidden
         className="absolute inset-0 bg-gradient-to-b from-burgundy-deep/90 via-burgundy/55 to-navy-deep/90"
         animate={opening ? { opacity: [1, 0.85, 0.2, 0.15] } : { opacity: 1 }}
-        transition={opening ? { ...journey, times: [0, 0.15, T_GARDEN, 1] } : undefined}
+        transition={opening ? { ...journey, times: [0, 0.15, T_GARDEN, 1] } : {}}
       />
 
       {/* Golden light: radial glow + slow rays pouring from the gate. */}
@@ -109,14 +109,14 @@ export function Landing({ guest, onOpenStart, onReveal, onOpened }: Props) {
         className="pointer-events-none absolute inset-0"
         initial={{ opacity: 0 }}
         animate={opening ? { opacity: [0, 0.2, 1, 0.7, 0.35] } : { opacity: 0 }}
-        transition={opening ? { ...journey, times: [0, 0.08, T_DOORS_OPEN, 0.65, 1] } : undefined}
+        transition={opening ? { ...journey, times: [0, 0.08, T_DOORS_OPEN, 0.65, 1] } : {}}
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_52%,var(--gold-light)_0%,transparent_55%)] opacity-70 mix-blend-screen" />
         {!reduce && (
           <motion.div
             className="animate-rays absolute left-1/2 top-[52%] h-[160%] w-[160%] -translate-x-1/2 -translate-y-1/2 mix-blend-screen"
             animate={opening ? { scale: [0.6, 1, 1.6] } : { scale: 0.6 }}
-            transition={opening ? { ...journey, times: [0, T_DOORS_OPEN, 1] } : undefined}
+            transition={opening ? { ...journey, times: [0, T_DOORS_OPEN, 1] } : {}}
           >
             <div className="bg-light-rays h-full w-full" />
           </motion.div>
@@ -148,7 +148,7 @@ export function Landing({ guest, onOpenStart, onReveal, onOpened }: Props) {
         className="pointer-events-none absolute inset-0 bg-burgundy-gradient"
         initial={{ opacity: 0 }}
         animate={opening ? { opacity: [0, 0, 0.75] } : { opacity: 0 }}
-        transition={opening ? { ...journey, times: [0, reduce ? 0 : T_VEIL, 1] } : undefined}
+        transition={opening ? { ...journey, times: [0, reduce ? 0 : T_VEIL, 1] } : {}}
       />
 
       <div className="relative flex h-full flex-col items-center justify-between px-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] pt-[max(2.5rem,env(safe-area-inset-top))] text-center">
