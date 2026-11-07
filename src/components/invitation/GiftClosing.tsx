@@ -59,7 +59,7 @@ function CopyButton({ value, label, done }: { value: string; label: string; done
 
 export function GiftClosing() {
   return (
-    <section id="kado" className="bg-navy-gradient relative overflow-hidden px-5 pb-28 pt-14">
+    <section id="kado" className="bg-navy-gradient relative overflow-hidden px-5 pb-[max(3.5rem,env(safe-area-inset-bottom))] pt-14">
       <SectionHeading eyebrow="Tanda Kasih" title="Kado Digital" />
       <Reveal className="mx-auto mt-3 max-w-[310px] text-center text-sm leading-relaxed text-cream/70">
         Doa restu Anda adalah karunia terindah. Namun jika ingin memberikan tanda kasih, dapat

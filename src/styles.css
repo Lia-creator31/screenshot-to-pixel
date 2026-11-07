@@ -387,6 +387,86 @@
 }
 
 /* ---------- Garden journey & garden life ---------- */
+:root {
+  --garden-sky-top: oklch(0.3 0.08 20);
+  --garden-sky-mid: oklch(0.62 0.12 45);
+  --garden-sky-low: oklch(0.88 0.1 85);
+  --garden-hill: oklch(0.42 0.05 170);
+  --garden-hill-far: oklch(0.58 0.05 150);
+  --garden-leaf: oklch(0.38 0.07 150);
+  --garden-leaf-light: oklch(0.52 0.09 140);
+  --garden-leaf-deep: oklch(0.25 0.05 165);
+  --garden-grass: oklch(0.45 0.08 135);
+  --garden-path: oklch(0.72 0.06 80);
+  --garden-rock: oklch(0.34 0.025 250);
+  --garden-rock-light: oklch(0.46 0.03 250);
+  --garden-water: oklch(0.88 0.04 215);
+  --garden-water-deep: oklch(0.55 0.07 220);
+  --garden-wood: oklch(0.36 0.06 50);
+}
+
+@keyframes water-flow {
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+
+@keyframes water-shimmer {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scaleX(0.85);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scaleX(1.1);
+  }
+}
+
+@keyframes mist-pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes leaf-sway {
+  0%,
+  100% {
+    transform: rotate(-1.2deg);
+  }
+  50% {
+    transform: rotate(1.2deg);
+  }
+}
+
+@utility animate-water-flow {
+  animation: water-flow var(--dur, 1.4s) linear infinite;
+}
+
+@utility animate-water-shimmer {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: water-shimmer var(--dur, 3.2s) ease-in-out var(--delay, 0s) infinite;
+}
+
+@utility animate-mist-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mist-pulse 4s ease-in-out infinite;
+}
+
+@utility animate-leaf-sway {
+  transform-box: fill-box;
+  transform-origin: bottom center;
+  animation: leaf-sway var(--dur, 6s) ease-in-out var(--delay, 0s) infinite;
+}
+
 @keyframes rays-turn {
   to {
     transform: rotate(360deg);
