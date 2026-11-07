@@ -75,7 +75,7 @@ function Invitation() {
       <motion.main
         className="relative mx-auto min-h-screen w-full max-w-[420px] overflow-x-clip bg-navy shadow-[0_0_80px_oklch(0_0_0/0.6)]"
         initial={false}
-        animate={revealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.03 }}
+        animate={{ opacity: revealed ? 1 : 0 }}
         transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
       >
         <div aria-hidden className="pointer-events-none fixed inset-y-0 left-1/2 z-30 w-full max-w-[420px] -translate-x-1/2">
