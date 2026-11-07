@@ -28,3 +28,8 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+- Invitation content (names, photos, events, gifts) lives in `src/components/invitation/data.ts`; components read from it so details can be swapped without touching layout.
+- Official graphics are referenced only through `src/components/invitation/assets.ts` (CDN asset pointers); garden animals and light effects are inline SVG/CSS, not image files, to keep the asset set official-only.
+- The opening journey timeline lives in `Landing.tsx` (single normalised timeline) and calls `onReveal` before `onOpened` so the main page staggers in while the garden dissolves.
