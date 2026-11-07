@@ -7,6 +7,21 @@ export const couple = {
   groom: "Shihab",
 } as const;
 
+export type CouplePerson = {
+  role: "groom" | "bride";
+  label: string;
+  name: string;
+  /** Replace `null` with the portrait URL once the photo is ready. */
+  photo: string | null;
+  /** Optional line (e.g. full name / parents) — left empty until provided. */
+  details: string | null;
+};
+
+export const couplePeople: { groom: CouplePerson; bride: CouplePerson } = {
+  groom: { role: "groom", label: "The Groom", name: "Shihab", photo: null, details: null },
+  bride: { role: "bride", label: "The Bride", name: "Lia", photo: null, details: null },
+};
+
 export const defaultGuest = "Pondra";
 
 export const verse = {

@@ -1,11 +1,13 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 
+import { Couple } from "./Couple";
 import { GalleryModal } from "./GalleryModal";
+import { GardenLife } from "./GardenLife";
 import { PhotoFace } from "./PhotoFace";
 import { official, scenery } from "./assets";
 import { couple, galleryPhotos, verse } from "./data";
-import { EASE_LUX, fadeUp, stagger, viewportOnce } from "./motion";
+import { EASE_LUX, fadeUp, stagger } from "./motion";
 import { CornerFrame, Divider, SectionHeading } from "./Ornaments";
 import { cn } from "@/lib/utils";
 
@@ -21,7 +23,7 @@ const SLOT_LAYOUT = [
   "col-span-4",
 ];
 
-export function OpeningGallery() {
+export function OpeningGallery({ ready = true }: { ready?: boolean }) {
   const [active, setActive] = useState<number | null>(null);
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] });
@@ -50,12 +52,13 @@ export function OpeningGallery() {
         className="pointer-events-none absolute -right-16 top-24 w-44 -scale-x-100 rotate-[-30deg] opacity-80"
       />
 
-      {/* Pembuka */}
+      <GardenLife birds={2} butterflies={1} tone="text-gold-light" className="opacity-50" />
+
+      {/* Pembuka — staggers in only once the garden has dissolved */}
       <motion.div
-        variants={stagger(0.15)}
+        variants={stagger(0.18, 0.15)}
         initial="hidden"
-        whileInView="show"
-        viewport={viewportOnce}
+        animate={ready ? "show" : "hidden"}
         className="relative px-7 text-center"
       >
         <motion.img
@@ -94,6 +97,9 @@ export function OpeningGallery() {
           {verse.ref}
         </motion.p>
       </motion.div>
+
+      {/* The Bride & The Groom */}
+      <Couple />
 
       {/* Our Gallery */}
       <div className="relative mx-4 mt-14 rounded-3xl bg-navy/70 px-4 pb-6 pt-10 backdrop-blur-sm card-lux">

@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Toaster } from "sonner";
 
@@ -46,6 +47,7 @@ function Invitation() {
   const { to } = Route.useSearch();
   const guest = to || defaultGuest;
   const [opened, setOpened] = useState(false);
+  const [revealed, setRevealed] = useState(false);
   const music = useMusic();
 
   useEffect(() => {
@@ -70,22 +72,31 @@ function Invitation() {
         <div className="absolute inset-0 bg-navy-deep/70" />
       </div>
 
-      <main className="relative mx-auto min-h-screen w-full max-w-[420px] overflow-x-clip bg-navy shadow-[0_0_80px_oklch(0_0_0/0.6)]">
+      <motion.main
+        className="relative mx-auto min-h-screen w-full max-w-[420px] overflow-x-clip bg-navy shadow-[0_0_80px_oklch(0_0_0/0.6)]"
+        initial={false}
+        animate={revealed ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 1.03 }}
+        transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
+      >
         <div aria-hidden className="pointer-events-none fixed inset-y-0 left-1/2 z-30 w-full max-w-[420px] -translate-x-1/2">
           <Atmosphere petals={7} particles={8} />
         </div>
-        <OpeningGallery />
+        <OpeningGallery ready={revealed} />
         <Schedule />
         <Ticket guest={guest} />
         <Guestbook />
         <GiftClosing />
-      </main>
+      </motion.main>
 
       {!opened && (
         <Landing
           guest={guest}
           onOpenStart={() => void music.play()}
-          onOpened={() => setOpened(true)}
+          onReveal={() => setRevealed(true)}
+          onOpened={() => {
+            setRevealed(true);
+            setOpened(true);
+          }}
         />
       )}
       {opened && <FloatingControls playing={music.playing} onToggleMusic={music.toggle} />}
