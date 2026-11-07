@@ -90,7 +90,7 @@ export function Landing({ guest, onOpenStart, onReveal, onOpened }: Props) {
               : { opacity: 0, scale: 1.3 }
           }
           transition={
-            opening ? { ...journey, ease: easeInOut, times: [0, 0.3, T_GARDEN, T_VEIL, 1] } : undefined
+            opening ? { ...journey, ease: easeInOut, times: [0, 0.3, T_GARDEN, T_VEIL, 1] } : {}
           }
         />
       )}
