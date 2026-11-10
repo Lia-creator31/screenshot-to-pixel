@@ -122,20 +122,17 @@ export function GiftClosing() {
 
       {/* Closing */}
       <div className="relative mt-16 text-center">
-        <img
-          src={scenery.floralCorner}
-          alt=""
-          aria-hidden
-          loading="lazy"
-          className="pointer-events-none absolute -bottom-24 -left-20 w-56 opacity-90"
-        />
-        <img
-          src={scenery.floralCorner}
-          alt=""
-          aria-hidden
-          loading="lazy"
-          className="pointer-events-none absolute -bottom-24 -right-20 w-56 -scale-x-100 opacity-90"
-        />
+        <div aria-hidden className="pointer-events-none absolute inset-x-[-1.25rem] -bottom-16 top-[-2rem] overflow-hidden">
+          <img
+            src={scenery.gardenBg}
+            alt=""
+            loading="lazy"
+            width={1024}
+            height={1792}
+            className="h-full w-full object-cover object-[50%_80%] opacity-40"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/70 to-navy-deep/40" />
+        </div>
         <Reveal>
           <p className="mx-auto max-w-[320px] font-display text-lg italic leading-relaxed text-cream/85">
             Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i
