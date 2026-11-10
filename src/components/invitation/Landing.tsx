@@ -98,7 +98,7 @@ export function Landing({ guest, onOpenStart, onReveal, onOpened }: Props) {
       {/* Burgundy/navy tint that lifts as golden light enters. */}
       <motion.div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-b from-burgundy-deep/90 via-burgundy/55 to-navy-deep/90"
+        className="absolute inset-0 bg-gradient-to-b from-navy-deep/75 via-navy-deep/15 to-navy-deep/85"
         animate={opening ? { opacity: [1, 0.85, 0.2, 0.15] } : { opacity: 1 }}
         transition={opening ? { ...journey, times: [0, 0.15, T_GARDEN, 1] } : {}}
       />

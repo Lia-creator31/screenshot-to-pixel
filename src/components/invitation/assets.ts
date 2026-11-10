@@ -20,7 +20,7 @@ import divider from "@/assets/official/divider.png.asset.json";
 import emblem from "@/assets/official/emblem.png.asset.json";
 
 import gardenBg from "@/assets/garden-bg.jpg";
-import floralCorner from "@/assets/floral-corner.png";
+import butterfly from "@/assets/butterfly.png";
 
 export const official = {
   monogram: monogram.url,
@@ -45,5 +45,5 @@ export const official = {
 
 export const scenery = {
   gardenBg,
-  floralCorner,
+  butterfly,
 } as const;

@@ -31,5 +31,6 @@ use the editor.
 
 ## Project rules
 - Invitation content (names, photos, events, gifts) lives in `src/components/invitation/data.ts`; components read from it so details can be swapped without touching layout.
-- Official graphics are referenced only through `src/components/invitation/assets.ts` (CDN asset pointers); garden animals and light effects are inline SVG/CSS, not image files, to keep the asset set official-only.
+- All graphics are referenced only through `src/components/invitation/assets.ts` (official CDN pointers plus the shared garden photo and butterfly in `scenery`), so the opening and main page reuse one garden image and stay visually consistent.
+- Colour token names (`burgundy`, `navy`) are kept for compatibility; retheme by changing their values in `src/styles.css`, not by renaming classes.
 - The opening journey timeline lives in `Landing.tsx` (single normalised timeline) and calls `onReveal` before `onOpened` so the main page staggers in while the garden dissolves.

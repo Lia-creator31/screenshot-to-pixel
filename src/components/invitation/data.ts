@@ -13,13 +13,16 @@ export type CouplePerson = {
   name: string;
   /** Replace `null` with the portrait URL once the photo is ready. */
   photo: string | null;
-  /** Optional line (e.g. full name / parents) — left empty until provided. */
-  details: string | null;
+  /** "Putra dari" / "Putri dari". */
+  childOf: string;
+  /** Replace `null` with the real names; placeholders are shown until then. */
+  father: string | null;
+  mother: string | null;
 };
 
 export const couplePeople: { groom: CouplePerson; bride: CouplePerson } = {
-  groom: { role: "groom", label: "The Groom", name: "Shihab", photo: null, details: null },
-  bride: { role: "bride", label: "The Bride", name: "Lia", photo: null, details: null },
+  groom: { role: "groom", label: "The Groom", name: "Shihab", photo: null, childOf: "Putra dari", father: null, mother: null },
+  bride: { role: "bride", label: "The Bride", name: "Lia", photo: null, childOf: "Putri dari", father: null, mother: null },
 };
 
 export const defaultGuest = "Pondra";

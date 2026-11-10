@@ -8,7 +8,7 @@ import { PhotoFace } from "./PhotoFace";
 import { official, scenery } from "./assets";
 import { couple, galleryPhotos, verse } from "./data";
 import { EASE_LUX, fadeUp, stagger } from "./motion";
-import { CornerFrame, Divider, SectionHeading } from "./Ornaments";
+import { Divider, SectionHeading } from "./Ornaments";
 import { cn } from "@/lib/utils";
 
 // Editorial 6-column layout: one featured photo + seven supporting frames.
@@ -35,24 +35,20 @@ export function OpeningGallery({ ready = true }: { ready?: boolean }) {
       ref={ref}
       className="relative overflow-hidden bg-burgundy-gradient pb-16 pt-14"
     >
-      <motion.img
-        src={scenery.floralCorner}
-        alt=""
-        aria-hidden
-        loading="lazy"
-        style={{ y: floralY }}
-        className="pointer-events-none absolute -left-16 -top-6 w-52 rotate-90 opacity-90"
-      />
-      <motion.img
-        src={scenery.floralCorner}
-        alt=""
-        aria-hidden
-        loading="lazy"
-        style={{ y: floralY }}
-        className="pointer-events-none absolute -right-16 top-24 w-44 -scale-x-100 rotate-[-30deg] opacity-80"
-      />
+      {/* Same real garden as the opening, fading softly into the page. */}
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 h-[520px] overflow-hidden">
+        <motion.img
+          src={scenery.gardenBg}
+          alt=""
+          width={1024}
+          height={1792}
+          style={{ y: floralY }}
+          className="h-[620px] w-full object-cover object-[50%_35%] opacity-55"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/30 via-burgundy/60 to-burgundy" />
+      </div>
 
-      <GardenLife birds={2} butterflies={1} tone="text-gold-light" className="opacity-50" />
+      <GardenLife birds={2} butterflies={2} tone="text-navy-deep" className="opacity-80" />
 
       {/* Pembuka — staggers in only once the garden has dissolved */}
       <motion.div
@@ -103,7 +99,6 @@ export function OpeningGallery({ ready = true }: { ready?: boolean }) {
 
       {/* Our Gallery */}
       <div className="relative mx-4 mt-14 rounded-3xl bg-navy/70 px-4 pb-6 pt-10 backdrop-blur-sm card-lux">
-        <CornerFrame size="w-12" />
         <SectionHeading eyebrow="Kisah Kami" title="Our Gallery" />
         <motion.div
           variants={stagger(0.08)}
