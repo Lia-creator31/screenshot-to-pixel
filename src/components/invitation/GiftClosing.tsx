@@ -122,7 +122,7 @@ export function GiftClosing() {
 
       {/* Closing */}
       <div className="relative isolate mt-16 text-center">
-        <div aria-hidden className="pointer-events-none absolute inset-x-[-1.25rem] -bottom-16 top-[-2rem] -z-10 overflow-hidden">
+        <div aria-hidden className="pointer-events-none absolute inset-x-[-1.25rem] -bottom-16 top-[-2rem] -z-10 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_35%)]">
           <img
             src={scenery.gardenBg}
             alt=""
@@ -131,7 +131,7 @@ export function GiftClosing() {
             height={1792}
             className="h-full w-full object-cover object-[50%_80%] opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/70 to-navy-deep/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy-deep/70 via-navy-deep/60 to-navy-deep/30" />
         </div>
         <Reveal>
           <p className="mx-auto max-w-[320px] font-display text-lg italic leading-relaxed text-cream/85">

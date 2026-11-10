@@ -60,7 +60,7 @@ export function Couple() {
       className="relative isolate mt-14 overflow-hidden py-14"
     >
       {/* Soft real-garden backdrop, consistent with the opening */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 [mask-image:linear-gradient(to_bottom,transparent,black_12%,black_88%,transparent)]">
         <img
           src={scenery.gardenBg}
           alt=""
@@ -69,7 +69,7 @@ export function Couple() {
           height={1792}
           className="h-full w-full object-cover object-[50%_55%] opacity-30 blur-[2px]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-burgundy via-navy/80 to-navy" />
+        <div className="absolute inset-0 bg-burgundy-deep/70" />
       </div>
       <GardenLife birds={1} butterflies={2} tone="text-navy-deep" className="opacity-80" />
 
