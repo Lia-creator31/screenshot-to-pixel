@@ -121,8 +121,8 @@ export function GiftClosing() {
       </motion.div>
 
       {/* Closing */}
-      <div className="relative mt-16 text-center">
-        <div aria-hidden className="pointer-events-none absolute inset-x-[-1.25rem] -bottom-16 top-[-2rem] overflow-hidden">
+      <div className="relative isolate mt-16 text-center">
+        <div aria-hidden className="pointer-events-none absolute inset-x-[-1.25rem] -bottom-16 top-[-2rem] -z-10 overflow-hidden">
           <img
             src={scenery.gardenBg}
             alt=""
