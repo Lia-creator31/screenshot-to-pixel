@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 
+import { scenery } from "./assets";
 import { cn } from "@/lib/utils";
 
 /**
@@ -22,8 +23,8 @@ const BIRD_PATHS = [
 ];
 
 const BUTTERFLY_PATHS = [
-  { left: "14%", top: "58%", dur: "17s", delay: "-2s", size: 16, alt: false },
-  { left: "70%", top: "40%", dur: "21s", delay: "-9s", size: 13, alt: true },
+  { left: "14%", top: "58%", dur: "17s", delay: "-2s", size: 26, alt: false },
+  { left: "70%", top: "40%", dur: "21s", delay: "-9s", size: 20, alt: true },
 ];
 
 function Bird({ size }: { size: number }) {
@@ -41,15 +42,17 @@ function Bird({ size }: { size: number }) {
 
 function Butterfly({ size }: { size: number }) {
   return (
-    <svg viewBox="0 0 24 20" width={size} height={size * 0.85} aria-hidden>
-      <g className="animate-butterfly-flap" style={{ transformOrigin: "12px 10px" }}>
-        <path d="M12 9 C9 2 2 0 1.5 5 C1 9 6 11 12 10Z" fill="var(--gold-light)" opacity="0.9" />
-        <path d="M12 10 C7 11 3 15 5.5 18 C8 20 11 15 12 11Z" fill="var(--gold)" opacity="0.85" />
-        <path d="M12 9 C15 2 22 0 22.5 5 C23 9 18 11 12 10Z" fill="var(--gold-light)" opacity="0.9" />
-        <path d="M12 10 C17 11 21 15 18.5 18 C16 20 13 15 12 11Z" fill="var(--gold)" opacity="0.85" />
-      </g>
-      <rect x="11.4" y="6" width="1.2" height="9" rx="0.6" fill="var(--burgundy-deep)" />
-    </svg>
+    // Real butterfly photo; wings "beat" by a soft horizontal squeeze.
+    <img
+      src={scenery.butterfly}
+      alt=""
+      aria-hidden
+      width={size}
+      height={size}
+      loading="lazy"
+      className="animate-butterfly-flap drop-shadow-[0_4px_6px_oklch(0_0_0/0.35)]"
+      style={{ width: size, height: size }}
+    />
   );
 }
 
